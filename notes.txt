@@ -1,0 +1,51 @@
+1. install dependencises 
+
+pip install -e .
+
+
+
+src/app/
+├── main.py                     # FastAPI app entry
+├── api/                        # HTTP layer (routes only)
+│   ├── __init__.py
+│   ├── chat.py                 # /chat endpoint
+│   ├── analysis.py             # /analysis endpoint
+│   ├── documents.py            # upload / ingest docs
+│   └── health.py
+│
+├── agents/                     # LangChain agents (brains)
+│   ├── __init__.py
+│   ├── chat_agent.py
+│   ├── analysis_agent.py
+│   └── document_agent.py
+│
+├── services/                   # Business logic
+│   ├── __init__.py
+│   ├── llm.py                  # LLM config (OpenAI/Azure/etc)
+│   ├── vector_store.py         # Chroma / FAISS / Pinecone
+│   ├── ingestion.py            # chunking + embedding
+│   ├── file_upload.py          # file handling
+│   └── db.py                   # SQL / NoSQL connectors
+│
+├── core/                       # App-wide config
+│   ├── __init__.py
+│   ├── config.py               # Settings (.env)
+│   ├── logging.py
+│   └── dependencies.py
+│
+├── models/                     # Pydantic request/response models
+│   ├── __init__.py
+│   ├── chat.py
+│   ├── analysis.py
+│   └── document.py
+│
+├── prompts/                    # Prompt templates
+│   ├── __init__.py
+│   ├── chat_prompt.txt
+│   ├── analysis_prompt.txt
+│   └── document_prompt.txt
+│
+└── utils/                      # Helpers
+    ├── __init__.py
+    ├── text.py
+    └── files.py
