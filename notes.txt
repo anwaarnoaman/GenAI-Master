@@ -3,6 +3,14 @@
 pip install -e .
 
 
+2. to run celery worker 
+
+celery -A src.workers.worker worker --loglevel=info
+
+3. to run project 
+
+uvicorn app.main:app --reload --port 8082
+
 
 src/app/
 ├── main.py                     # FastAPI app entry

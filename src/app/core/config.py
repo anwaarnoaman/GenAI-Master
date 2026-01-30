@@ -8,11 +8,15 @@ class Settings(BaseSettings):
     log_level: str = "INFO"
     log_to_file: bool = False
     log_file_path: str = "logs/app.log"
-
+    temp_file_path: str = "temp" 
+    
+    redis_url : str = ""
+    celery_broker_url: str = ""
+    celery_result_backend: str = ""
 
     chat_model_provider_url : str = "https://inference.jhingaai.com/v1"
     chat_model_name : str = "gpt-oss:20b"
-
+  
 
     model_config = SettingsConfigDict(
         env_file=".env",

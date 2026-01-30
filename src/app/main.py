@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from app.core.logging import setup_logging, get_logger
 from app.core.config import settings
 from app.api.health import router as health_router
+from app.api.documents import router as document_router
 
 setup_logging()
 logger = get_logger(__name__)
@@ -13,7 +14,7 @@ app = FastAPI(
 )
 
 app.include_router(health_router)
-
+app.include_router(document_router)
 
 @app.get("/")
 def root():
